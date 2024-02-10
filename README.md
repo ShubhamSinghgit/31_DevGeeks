@@ -11,6 +11,7 @@ Dependencies: pandas and streamlit
 2. Streamlit: Streamlit is a Python framework for building interactive web applications. In HIMS it is utilized to create the user interface and make the application functional. It allows users to interact with the database, view patient records, update information, and perform various tasks related to healthcare data management.
 
 > To install the required packages, execute the following commands in your command prompt or terminal:
+> 
  `pip install pandas streamlit`
 
 ## Runnin the Webapp: 
