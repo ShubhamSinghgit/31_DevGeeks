@@ -14,7 +14,7 @@ Dependencies: pandas and streamlit
 > 
  `pip install pandas streamlit`
 
-## Runnin the Webapp: 
+## Running the Webapp: 
 
 Navigate to the project directory in your command prompt or terminal and execute the following command:
 `streamlit run hims_app.py`
