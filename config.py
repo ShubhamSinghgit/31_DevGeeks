@@ -5,5 +5,5 @@
 
 password = '1234'                               # e.g. password = '1234'
 database_name = 'database_1A'                                 # e.g. database_name = 'database_1A'
-edit_mode_password = '1234'                               # e.g. edit_mode_password = 'allow_edit'
-dr_mls_access_code = '1234'      # e.g. dr_mls_access_code = 'access_auth'
+edit_mode_password = '1234'                               # e.g. edit_mode_password = ''
+dr_mls_access_code = '1234'      # e.g. dr_mls_access_code = ''
