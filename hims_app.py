@@ -32,7 +32,7 @@ def verify_dr_mls_access_code():
         st.sidebar.error('Invalid access code')
         return False
 
-# function to perform various operations of the patient module (according to user's selection)
+# function to perform operations of the patient module 
 def patients():
     st.header('PATIENTS')
     option_list = ['', 'Add patient', 'Update patient', 'Delete patient', 'Show complete patient record', 'Search patient']
@@ -49,7 +49,7 @@ def patients():
             st.subheader('DELETE PATIENT')
             try:
                 p.delete_patient()
-            except sql.IntegrityError:      # handles foreign key constraint failure issue (due to integrity error)
+            except sql.IntegrityError:      # foreign key constraint failure issue fix (integrity error)
                 st.error('This entry cannot be deleted as other records are using it.')
     elif option == option_list[4]:
         st.subheader('COMPLETE PATIENT RECORD')
@@ -58,7 +58,7 @@ def patients():
         st.subheader('SEARCH PATIENT')
         p.search_patient()
 
-# function to perform various operations of the doctor module (according to user's selection)
+# function to perform operations of the doctor module 
 def doctors():
     st.header('DOCTORS')
     option_list = ['', 'Add doctor', 'Update doctor', 'Delete doctor', 'Show complete doctor record', 'Search doctor']
@@ -75,7 +75,7 @@ def doctors():
             st.subheader('DELETE DOCTOR')
             try:
                 dr.delete_doctor()
-            except sql.IntegrityError:      # handles foreign key constraint failure issue (due to integrity error)
+            except sql.IntegrityError:      # foreign key constraint failure issue fix (integrity error)
                 st.error('This entry cannot be deleted as other records are using it.')
     elif option == option_list[4]:
         st.subheader('COMPLETE DOCTOR RECORD')
@@ -84,7 +84,7 @@ def doctors():
         st.subheader('SEARCH DOCTOR')
         dr.search_doctor()
 
-# function to perform various operations of the prescription module (according to user's selection)
+# function to perform operations of the prescription module 
 def prescriptions():
     st.header('PRESCRIPTIONS')
     option_list = ['', 'Add prescription', 'Update prescription', 'Delete prescription', 'Show prescriptions of a particular patient']
@@ -104,7 +104,7 @@ def prescriptions():
         st.subheader('PRESCRIPTIONS OF A PARTICULAR PATIENT')
         m.prescriptions_by_patient()
 
-# function to perform various operations of the medical_test module (according to user's selection)
+# function to perform operations of the medical_test module
 def medical_tests():
     st.header('MEDICAL TESTS')
     option_list = ['', 'Add medical test', 'Update medical test', 'Delete medical test', 'Show medical tests of a particular patient']
@@ -124,7 +124,7 @@ def medical_tests():
         st.subheader('MEDICAL TESTS OF A PARTICULAR PATIENT')
         t.medical_tests_by_patient()
 
-# function to perform various operations of the department module (according to user's selection)
+# function to perform operations of the department module 
 def departments():
     st.header('DEPARTMENTS')
     option_list = ['', 'Add department', 'Update department', 'Delete department', 'Show complete department record', 'Search department', 'Show doctors of a particular department']
@@ -141,7 +141,7 @@ def departments():
             st.subheader('DELETE DEPARTMENT')
             try:
                 d.delete_department()
-            except sql.IntegrityError:      # handles foreign key constraint failure issue (due to integrity error)
+            except sql.IntegrityError:      # foreign key constraint failure issue fix (integrity error)
                 st.error('This entry cannot be deleted as other records are using it.')
     elif option == option_list[4]:
         st.subheader('COMPLETE DEPARTMENT RECORD')
@@ -155,7 +155,7 @@ def departments():
 
 # function to implement and initialise home/main menu on successful user authentication
 def home():
-    db.db_init()        # establishes connection to the database and create tables (if they don't exist yet)
+    db.db_init()        # connection to the database and create tables
     option = st.sidebar.selectbox('Select module', ['', 'Patients', 'Doctors', 'Prescriptions', 'Medical Tests', 'Departments'])
     if option == 'Patients':
         patients()
@@ -169,7 +169,7 @@ def home():
         departments()
 
 st.title('HEALTHCARE INFORMATION MANAGEMENT SYSTEM')
-password = st.sidebar.text_input('Enter password', type = 'password')       # user password authentication
+password = st.sidebar.text_input('Enter password', type = 'password')       #  password authentication
 if password == config.password:
     st.sidebar.success('Verified')
     home()
